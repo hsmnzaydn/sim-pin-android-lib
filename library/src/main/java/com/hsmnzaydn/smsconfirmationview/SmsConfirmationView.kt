@@ -61,7 +61,7 @@ class SmsConfirmationView @JvmOverloads constructor(
      * manual typing, pasting, SMS auto-detection, etc.
      */
     var onChangeListener: OnChangeListener? = null
-
+    var tempBorderColor: Int = 0
     internal var style: Style = SmsConfirmationViewStyleUtils.getDefault(context)
         set(value) {
             if (field == value) return
@@ -135,6 +135,7 @@ class SmsConfirmationView @JvmOverloads constructor(
         @ColorInt borderColor: Int,
         @ColorInt textColor: Int?
     ) {
+        tempBorderColor = this.symbolBorderColor
         this.symbolBorderColor = borderColor
         this.symbolBorderActiveColor = borderColor
         this.symbolTextColor = textColor ?: symbolTextColor
@@ -255,7 +256,7 @@ class SmsConfirmationView @JvmOverloads constructor(
             onChangeListener?.onCodeChange("",false,true)
             this.enteredCode = ""
             isFail = false
-            this.symbolBorderColor = context.resources.getColor(android.R.color.black)
+            this.symbolBorderColor = tempBorderColor
             this.symbolBorderActiveColor = tempStyle.symbolViewStyle.borderColorActive
             this.symbolTextColor = tempStyle.symbolViewStyle.textColor
             updateState()
