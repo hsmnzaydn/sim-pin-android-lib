@@ -1,4 +1,4 @@
-package com.fraggjkee.smsconfirmationview
+package com.hsmnzaydn.smsconfirmationview
 
 import android.content.BroadcastReceiver
 import android.content.Context

@@ -1,4 +1,4 @@
-package com.fraggjkee.smsconfirmationview.smsretriever
+package com.hsmnzaydn.smsconfirmationview.smsretriever
 
 internal object SmsParser {
 

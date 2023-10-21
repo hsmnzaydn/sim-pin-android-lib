@@ -1,4 +1,4 @@
-package com.fraggjkee.smsconfirmationview.smsretriever
+package com.hsmnzaydn.smsconfirmationview.smsretriever
 
 import android.app.Activity
 import android.content.Context

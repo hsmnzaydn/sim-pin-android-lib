@@ -1,10 +1,11 @@
-package com.fraggjkee.smsconfirmationview
+package com.hsmnzaydn.smsconfirmationview
 
 import android.content.Context
 import android.graphics.Typeface
 import android.os.Build
 import android.util.AttributeSet
 import androidx.core.content.res.ResourcesCompat
+import com.fraggjkee.smsconfirmationview.R
 import com.google.android.material.R as MaterialR
 
 internal object SmsConfirmationViewStyleUtils {

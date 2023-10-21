@@ -1,4 +1,4 @@
-package com.fraggjkee.smsconfirmationview
+package com.hsmnzaydn.smsconfirmationview
 
 import android.animation.Animator
 import android.animation.ArgbEvaluator

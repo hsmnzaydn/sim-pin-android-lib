@@ -7,7 +7,7 @@
     android:padding="32dp"
     tools:context=".MainActivity">
 
-    <com.fraggjkee.smsconfirmationview.SmsConfirmationView
+    <com.hsmnzaydn.smsconfirmationview.SmsConfirmationView
         android:id="@+id/sms_code_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

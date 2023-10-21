@@ -1,4 +1,4 @@
-package com.fraggjkee.smsconfirmationview
+package com.hsmnzaydn.smsconfirmationview
 
 import android.content.ClipDescription.MIMETYPE_TEXT_HTML
 import android.content.ClipDescription.MIMETYPE_TEXT_PLAIN
@@ -8,6 +8,7 @@ import android.view.ActionMode
 import android.view.Menu
 import android.view.MenuItem
 import androidx.core.content.getSystemService
+import com.fraggjkee.smsconfirmationview.R
 
 internal class ActionModeCallback(
     context: Context,

@@ -1,6 +1,6 @@
 @file:Suppress("unused")
 
-package com.fraggjkee.smsconfirmationview
+package com.hsmnzaydn.smsconfirmationview
 
 /**
  * @see R.styleable.SmsConfirmationView_scv_codeLength

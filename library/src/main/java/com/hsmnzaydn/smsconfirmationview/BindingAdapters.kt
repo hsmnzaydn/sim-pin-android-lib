@@ -1,6 +1,6 @@
 @file:Suppress("unused")
 
-package com.fraggjkee.smsconfirmationview
+package com.hsmnzaydn.smsconfirmationview
 
 import androidx.databinding.BindingAdapter
 import androidx.databinding.InverseBindingAdapter
@@ -31,7 +31,7 @@ fun setListener(
     if (attrListener == null) {
         view.onChangeListener = listener
     } else {
-        view.onChangeListener = SmsConfirmationView.OnChangeListener { code, isComplete,isFail ->
+        view.onChangeListener = SmsConfirmationView.OnChangeListener { code, isComplete, isFail ->
             listener?.onCodeChange(code, isComplete,isFail)
             attrListener.onChange()
         }

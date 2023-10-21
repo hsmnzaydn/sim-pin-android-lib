@@ -1,4 +1,4 @@
-package com.fraggjkee.smsconfirmationview
+package com.hsmnzaydn.smsconfirmationview
 
 import android.content.BroadcastReceiver
 import android.content.Context
@@ -26,9 +26,9 @@ import androidx.core.view.postDelayed
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.findFragment
 import androidx.lifecycle.Lifecycle
-import com.fraggjkee.smsconfirmationview.smsretriever.SmsParser
-import com.fraggjkee.smsconfirmationview.smsretriever.SmsRetrieverContract
-import com.fraggjkee.smsconfirmationview.smsretriever.SmsRetrieverReceiver
+import com.hsmnzaydn.smsconfirmationview.smsretriever.SmsParser
+import com.hsmnzaydn.smsconfirmationview.smsretriever.SmsRetrieverContract
+import com.hsmnzaydn.smsconfirmationview.smsretriever.SmsRetrieverReceiver
 import com.google.android.gms.auth.api.phone.SmsRetriever
 import com.google.android.gms.auth.api.phone.SmsRetrieverClient
 
