@@ -20,6 +20,7 @@ import android.widget.LinearLayout
 import android.widget.Space
 import androidx.activity.result.ActivityResultCallback
 import androidx.activity.result.ActivityResultLauncher
+import androidx.annotation.ColorInt
 import androidx.core.view.children
 import androidx.core.view.postDelayed
 import androidx.fragment.app.Fragment
@@ -48,11 +49,13 @@ class SmsConfirmationView @JvmOverloads constructor(
             field = digits
             onChangeListener?.onCodeChange(
                 code = digits,
-                isComplete = digits.length == codeLength
+                isComplete = digits.length == codeLength,
+                isDeleteAgain = false
             )
             updateState()
         }
 
+    var isFail: Boolean = false
     /**
      * Change listener for the entered code. Will be called for all possible changes:
      * manual typing, pasting, SMS auto-detection, etc.
@@ -66,6 +69,8 @@ class SmsConfirmationView @JvmOverloads constructor(
             removeAllViews()
             updateState()
         }
+
+    internal val tempStyle = style
 
     private val smsDetectionMode: SmsDetectionMode get() = style.smsDetectionMode
 
@@ -124,6 +129,17 @@ class SmsConfirmationView @JvmOverloads constructor(
             showPopupMenuIfNeeded()
             true
         }
+    }
+
+    fun setFailStatus(
+        @ColorInt borderColor: Int,
+        @ColorInt textColor: Int?
+    ) {
+        this.symbolBorderColor = borderColor
+        this.symbolBorderActiveColor = borderColor
+        this.symbolTextColor = textColor ?: symbolTextColor
+        isFail = true
+        updateState()
     }
 
     private fun updateState() {
@@ -235,7 +251,16 @@ class SmsConfirmationView @JvmOverloads constructor(
         if (enteredCode.isEmpty()) {
             return
         }
-
+        if (isFail){
+            onChangeListener?.onCodeChange("",false,true)
+            this.enteredCode = ""
+            isFail = false
+            this.symbolBorderColor = context.resources.getColor(android.R.color.black)
+            this.symbolBorderActiveColor = tempStyle.symbolViewStyle.borderColorActive
+            this.symbolTextColor = tempStyle.symbolViewStyle.textColor
+            updateState()
+            return
+        }
         this.enteredCode = enteredCode.substring(0, enteredCode.length - 1)
     }
 
@@ -251,7 +276,7 @@ class SmsConfirmationView @JvmOverloads constructor(
             override fun deleteSurroundingText(beforeLength: Int, afterLength: Int): Boolean {
                 return if (beforeLength == 1 && afterLength == 0) {
                     sendKeyEvent(KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_DEL))
-                        && sendKeyEvent(KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_DEL))
+                            && sendKeyEvent(KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_DEL))
                 } else super.deleteSurroundingText(beforeLength, afterLength)
             }
         }
@@ -326,7 +351,7 @@ class SmsConfirmationView @JvmOverloads constructor(
          * @param code new value of the entered code
          * @param isComplete true when the [code]'s length matches [codeLength] and false otherwise
          */
-        fun onCodeChange(code: String, isComplete: Boolean)
+        fun onCodeChange(code: String, isComplete: Boolean, isDeleteAgain: Boolean)
     }
 
     internal data class Style(

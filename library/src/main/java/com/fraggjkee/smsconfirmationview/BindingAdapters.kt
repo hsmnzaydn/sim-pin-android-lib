@@ -31,8 +31,8 @@ fun setListener(
     if (attrListener == null) {
         view.onChangeListener = listener
     } else {
-        view.onChangeListener = SmsConfirmationView.OnChangeListener { code, isComplete ->
-            listener?.onCodeChange(code, isComplete)
+        view.onChangeListener = SmsConfirmationView.OnChangeListener { code, isComplete,isFail ->
+            listener?.onCodeChange(code, isComplete,isFail)
             attrListener.onChange()
         }
     }

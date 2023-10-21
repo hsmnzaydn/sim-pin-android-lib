@@ -12,7 +12,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val view = findViewById<SmsConfirmationView>(R.id.sms_code_view)
-        view.onChangeListener = SmsConfirmationView.OnChangeListener { code, isComplete ->
+        view.onChangeListener = SmsConfirmationView.OnChangeListener { code, isComplete,isFail ->
+            if (isComplete){
+                view.setFailStatus(
+                    borderColor = getColor(android.R.color.holo_red_dark),
+                    textColor = getColor(android.R.color.holo_red_dark),
+                )
+            }
             Toast.makeText(this, "value: $code, isComplete: $isComplete", Toast.LENGTH_SHORT)
                 .show()
         }
