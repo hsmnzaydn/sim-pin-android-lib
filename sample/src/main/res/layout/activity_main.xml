@@ -17,7 +17,7 @@
         app:scv_pasteEnabled="true"
         app:scv_smsDetectionMode="manual"
         app:scv_symbolBackgroundColor="@android:color/white"
-        app:scv_symbolBorderActiveColor="?colorPrimary"
+        app:scv_symbolBorderActiveColor="@android:color/holo_green_dark"
         app:scv_symbolBorderColor="@android:color/black"
         app:scv_symbolBorderCornerRadius="8dp"
         app:scv_symbolBorderWidth="2dp"

@@ -62,6 +62,7 @@ class SmsConfirmationView @JvmOverloads constructor(
      */
     var onChangeListener: OnChangeListener? = null
     var tempBorderColor: Int = 0
+    var tempActiveBorderColor: Int = 0
     internal var style: Style = SmsConfirmationViewStyleUtils.getDefault(context)
         set(value) {
             if (field == value) return
@@ -136,6 +137,7 @@ class SmsConfirmationView @JvmOverloads constructor(
         @ColorInt textColor: Int?
     ) {
         tempBorderColor = this.symbolBorderColor
+        tempActiveBorderColor = this.symbolBorderActiveColor
         this.symbolBorderColor = borderColor
         this.symbolBorderActiveColor = borderColor
         this.symbolTextColor = textColor ?: symbolTextColor
@@ -257,7 +259,7 @@ class SmsConfirmationView @JvmOverloads constructor(
             this.enteredCode = ""
             isFail = false
             this.symbolBorderColor = tempBorderColor
-            this.symbolBorderActiveColor = tempStyle.symbolViewStyle.borderColorActive
+            this.symbolBorderActiveColor = tempActiveBorderColor
             this.symbolTextColor = tempStyle.symbolViewStyle.textColor
             updateState()
             return
