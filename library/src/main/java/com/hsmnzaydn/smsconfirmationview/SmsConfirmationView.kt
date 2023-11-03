@@ -132,7 +132,7 @@ class SmsConfirmationView @JvmOverloads constructor(
         }
     }
 
-    fun setFailStatus(
+    fun changeBorderColors(
         @ColorInt borderColor: Int,
         @ColorInt textColor: Int?
     ) {
