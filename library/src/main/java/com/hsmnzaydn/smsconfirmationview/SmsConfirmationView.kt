@@ -221,8 +221,11 @@ class SmsConfirmationView @JvmOverloads constructor(
         event.action != KeyEvent.ACTION_DOWN -> false
         event.isDigitKey() -> {
             if (isFail){
+                this.enteredCode = ""
                 isFail = false
-                enteredCode = ""
+                this.symbolBorderColor = tempBorderColor
+                this.symbolBorderActiveColor = tempActiveBorderColor
+                this.symbolTextColor = tempStyle.symbolViewStyle.textColor
             }
             val enteredSymbol = event.keyCharacterMap.getNumber(keyCode)
             appendSymbol(enteredSymbol)
