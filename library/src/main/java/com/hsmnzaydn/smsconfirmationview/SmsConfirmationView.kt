@@ -220,6 +220,10 @@ class SmsConfirmationView @JvmOverloads constructor(
     private fun handleKeyEvent(keyCode: Int, event: KeyEvent): Boolean = when {
         event.action != KeyEvent.ACTION_DOWN -> false
         event.isDigitKey() -> {
+            if (isFail){
+                isFail = false
+                enteredCode = ""
+            }
             val enteredSymbol = event.keyCharacterMap.getNumber(keyCode)
             appendSymbol(enteredSymbol)
             true
